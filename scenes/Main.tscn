@@ -10,6 +10,7 @@ current = true
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 script = ExtResource( 1 )
+zoomSmoothing = 0.7
 
 [node name="test" type="Sprite" parent="."]
 position = Vector2( 465, 273 )
