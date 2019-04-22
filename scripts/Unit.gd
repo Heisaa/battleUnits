@@ -13,6 +13,8 @@ func setSelected(value):
 	if selected != value:
 		selected = value
 		box.visible = value
+		label.visible = value
+		bar.visible = value
 		if selected:
 			emit_signal("wasSelected", self)
 		else:
@@ -22,6 +24,9 @@ func setSelected(value):
 func _ready():
 	connect("wasSelected", get_parent(),"selectUnit")
 	connect("wasDeselected",get_parent(),"deselectUnit")
+	box.visible = false
+	label.visible = false
+	bar.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
