@@ -27,6 +27,7 @@ func _ready():
 	box.visible = false
 	label.visible = false
 	bar.visible = false
+	label.text = name
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -36,6 +37,4 @@ func _on_unit_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == BUTTON_LEFT:
-				setSelected(true)
-			if event.button_index == BUTTON_RIGHT:
-				setSelected(false)
+				setSelected(not selected)
