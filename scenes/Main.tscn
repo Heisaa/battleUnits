@@ -51,3 +51,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="drawRect" type="ColorRect" parent="UI/Base"]
+margin_right = 40.0
+margin_bottom = 40.0
+

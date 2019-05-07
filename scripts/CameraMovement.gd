@@ -11,9 +11,16 @@ export var marginX = 10.0
 export var marginY = 10.0
 
 var mousePos = Vector2()
-var zoomPos = Vector2()
+var mousePosGlobal = Vector2()
+var start = Vector2()
+var startV = Vector2()
+var end = Vector2()
+var endV = Vector2()
 var zoomFactor = 1.0
 var zooming = false
+var isDragging = false
+
+onready var rectD = $"../UI/Base/drawRect"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -64,9 +71,11 @@ func _input(event):
 			zooming = true
 			if event.button_index == BUTTON_WHEEL_UP:
 				zoomFactor -= 0.01 * zoomSpeed
-				zoomPos = get_global_mouse_position()
 			elif event.button_index == BUTTON_WHEEL_DOWN:
 				zoomFactor += 0.01 * zoomSpeed
-				zoomPos = get_global_mouse_position()
 		else:
 			zooming = false
+	
+	if event is InputEventMouse:
+		mousePos = event.position
+		mousePosGlobal= get_global_mouse_position()
